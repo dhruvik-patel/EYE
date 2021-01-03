@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>EYƎ</title>
+    <style>
+      .bg{
+        background : #000a12!important;
+        color: white;
+      }
+      .card-bg{
+        background : #000a12!important;
+        border: none;
+        color : white;
+      }
+      .list-group-item{
+        background : #000a12!important;
+        border: none;
+      }
+      .title-link{
+        text-decoration: none;
+        color: white;
+      }
+      .title-link:hover{
+        color: #000a12;
+        text-decoration: none;
+        -webkit-text-stroke-width: 0.30px;
+        -webkit-text-stroke-color: white;
+      }
+      /* .list-group-item:active{
+        background : #000a12!important;
+        border: none;
+        color:white!important;
+      } */
+
+    </style>
+  </head>
+  <body class='bg'>
+    {% include 'navbar.html' %}
+
+    <div class="container">
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <div class="card-columns">
+            {% for c in cats %}
+                <div class="card bg" style="width: 18rem;">
+                  <img src="/media/images/{{c.title}}.jpg" class="card-img-top" alt="image">
+                  <div class="card-body">
+                    <a class="title-link" href="{% url 'category image' c.pk %}"><h5>{{c.title}}</h5></a>
+                    <p class="card-text">{{c.info}}</p>
+                  </div>
+                </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
