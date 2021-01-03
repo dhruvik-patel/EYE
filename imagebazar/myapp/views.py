@@ -13,7 +13,8 @@ def category_images(request, cid):
     cats = Category.objects.all()
     cat = Category.objects.get(pk=cid)
     images = Image.objects.filter(cat=cat)
-    return render(request,'home.html', {'images':images,'cats':cats})
+    myid = cid
+    return render(request,'home.html', {'images':images,'cats':cats, 'myid':myid})
 
 def main(request):
     cats = Category.objects.all()

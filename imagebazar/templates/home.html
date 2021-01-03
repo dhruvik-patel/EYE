@@ -7,30 +7,34 @@
     <title>EYƎ</title>
     <style>
       .bg{
-        background : #000a12;
+        background : #212121;
+        color: white;
       }
       .card-bg{
-        background : #000a12;
+        background : #303030;
         border: none;
-        box-shadow: 1px 1px 4px white;
+        /* box-shadow: 1px 1px 4px white; */
         color : white;
       }
       .btn-primary{
-        background : #000a12;
+        background : #303030;
         border-color: white;
       }
       .btn-primary:hover{
         background : white;
-        border-color: #000a12;
-        color: #000a12;
+        border-color: #212121;
+        color: #303030;
       }
       .list-group-item{
-        background : #000a12;
+        background : #212121;
         border: none;
       }
       .list-group-item:hover{
         color : white;
-        background : #000a12;
+        background : #212121;
+      }
+      .white{
+        color : white;
       }
       /* .active{
         background: #000a12!important;
@@ -46,9 +50,9 @@
         <div class="col-md-2">
           <!-- categories -->
           <div class="list-group mt-3">
-            <a href="{% url 'home' %}" {% if request.path == 'home/' %} class="active"{% endif %} class="list-group-item list-group-item-action">All Images</a>
+            <a href="{% url 'home' %}" {% if request.path == '/home/' %} class='white list-group-item list-group-item-action' {% endif %} class="list-group-item list-group-item-action">All Images</a>
             {% for c in cats %}
-            <a href="{% url 'category image' c.pk %}" {% if request.path == "category/{{c.id}}/" %}class="active"{% endif %} class="list-group-item list-group-item-action">{{c.title}}</a>
+            <a href="{% url 'category image' c.pk %}" {% if myid == c.id %} class='white list-group-item list-group-item-action' {% endif%} class="list-group-item list-group-item-action">{{c.title}}</a>
             {% endfor %}
           </div>
         </div>
