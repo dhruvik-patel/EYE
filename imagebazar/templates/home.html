@@ -12,6 +12,7 @@
       .card-bg{
         background : #000a12;
         border: none;
+        box-shadow: 1px 1px 4px white;
         color : white;
       }
       .btn-primary{
@@ -26,12 +27,15 @@
       .list-group-item{
         background : #000a12;
         border: none;
-        color: yellow;
       }
       .list-group-item:hover{
         color : white;
         background : #000a12;
       }
+      /* .active{
+        background: #000a12!important;
+        color: white!important;
+      } */
     </style>
   </head>
   <body class='bg'>
@@ -42,9 +46,9 @@
         <div class="col-md-2">
           <!-- categories -->
           <div class="list-group mt-3">
-            <a href="{% url 'home' %}" class="list-group-item list-group-item-action">All Images</a>
+            <a href="{% url 'home' %}" {% if request.path == 'home/' %} class="active"{% endif %} class="list-group-item list-group-item-action">All Images</a>
             {% for c in cats %}
-            <a href="{% url 'category image' c.pk %}" class="list-group-item list-group-item-action">{{c.title}}</a>
+            <a href="{% url 'category image' c.pk %}" {% if request.path == "category/{{c.id}}/" %}class="active"{% endif %} class="list-group-item list-group-item-action">{{c.title}}</a>
             {% endfor %}
           </div>
         </div>
@@ -60,7 +64,7 @@
                     <div class="card-body">
                       <h5 class="card-title">{{i.title}}</h5>
                       <p class="card-text">{{i.info}}</p>
-                      <a href="#" class="btn btn-primary">view</a>
+                      <a href="/media/{{i.image}}" download class="btn btn-primary">Download</a>
                     </div>
                   </div>
 
